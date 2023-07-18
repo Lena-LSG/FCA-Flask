@@ -27,7 +27,7 @@ def stat():
 
 
 @app.route('/', methods=['POST'])
-def backup():  # put application's code here
+def backup(): 
 
     folder_to_backup = request.json["path"]
     try:
@@ -43,6 +43,5 @@ def backup():  # put application's code here
         return response, 404
 
 
-# Run Flask
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
