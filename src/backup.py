@@ -7,14 +7,14 @@ import datetime
 # Get the backup folder path from environment variable
 backup_folder_path = os.environ.get('BACKUPFOLDER')
 if backup_folder_path is None or not backup_folder_path:
-    backup_folder_path = './backup'
+    backup_folder_path = './backups'
 
 # Create a backup folder if it doesn't exist
 if not os.path.exists(backup_folder_path):
     os.makedirs(backup_folder_path)
 
 
-def backup_folder(source_folder_path):
+def folder(source_folder_path):
     if not os.path.exists(source_folder_path):
         log_to_db("BACKUP", "Folder=" + source_folder_path, "ERROR")
         raise ValueError("Source Folder does not exist")
