@@ -7,13 +7,14 @@ from dateutil import parser
 # Get the backup folder path from environment variable
 sql_host = os.environ.get('SQL_HOST')
 if sql_host is None or not sql_host:
-    sql_host = '127.0.0.1'
+    sql_host = '172.18.0.3'
 
 
 # Connect to the MySQL database
 def dbconnect():
     return mysql.connector.connect(
         host=sql_host,
+        port=3306,
         user="root",
         password="password",
         database="fca")
@@ -54,7 +55,7 @@ def get(startdate, enddate):
         select_query = "SELECT date, action, parameter, status FROM log "
 
         if start_date is not None and end_date is not None:
-            select_query += "WHERE date >= '" + startdate + "' AND date <= '" + end + "' "
+            select_query += "WHERE date >= '" + startdate + "' AND date <= '" + enddate + "' "
         elif start_date is not None and end_date is None:
             select_query += "WHERE date >= '" + startdate + "' "
         elif start_date is None and end_date is not None:
