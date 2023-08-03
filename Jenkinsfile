@@ -8,10 +8,14 @@ pipeline {
             }
         }
         stage('push') {
-        
+            steps {
+
+            }
         }
         stage('deploy') {
+            steps{
 
+            }
         }
     }
 }
