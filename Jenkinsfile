@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat "docker build -t 127.0.0.1:8083:/fcaflask ."
+                bat "docker build -t 127.0.0.1:8083/fcaflask ."
                 bat "docker images"
             }
         }
