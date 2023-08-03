@@ -7,7 +7,7 @@ from dateutil import parser
 # Get the backup folder path from environment variable
 sql_host = os.environ.get('SQL_HOST')
 if sql_host is None or not sql_host:
-    sql_host = '172.18.0.3'
+    sql_host = '172.18.0.2'
 
 
 # Connect to the MySQL database
