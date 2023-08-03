@@ -19,7 +19,7 @@ pipeline {
         stage('deploy') {
             steps{
                 bat "docker run -d -p 8085:5000 --name fcaflask 127.0.0.1:8083/fcaflask"
-                bat "docker network connect fcaflask"
+                bat "docker network connect fcaflask fcaflask"
                 bat "echo Pipeline ran successfully! Enjoy your backups!"
             }
         }
