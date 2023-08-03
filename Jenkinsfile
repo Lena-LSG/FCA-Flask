@@ -3,13 +3,14 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat "docker build -t 127.0.0.1:8083/fcaflask ."
+                bat "docker build -t 127.0.0.1:8083/fcaflask:latest ."
                 bat "docker images"
             }
         }
         stage('push') {
             steps {
-                bat "echo 'ooga booga'"
+                bat "docker login 127.0.0.1:8083 -u admin -p admin"
+                bat "docker push 127.0.0.1:8083:/fcaflask:latest"
             }
         }
         stage('deploy') {
