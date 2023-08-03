@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        NEXUS_LOGIN = credentials{NEXUS_LOGIN}
+        NEXUS_LOGIN = credentials(NEXUS_LOGIN)
     }
     stages {
         stage('build') {
