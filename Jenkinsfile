@@ -10,7 +10,7 @@ pipeline {
         stage('push') {
             steps {
                 bat "docker login 127.0.0.1:8083 -u admin -p admin"
-                bat "docker push 127.0.0.1:8083:/fcaflask"
+                bat "docker push 127.0.0.1:8083/fcaflask"
             }
         }
         stage('deploy') {
