@@ -48,7 +48,7 @@ def backup():
     
 @app.route('/')
 def home():
-    return(redirect(url_for('backup')))
+    return(redirect(url_for('backup'))) # This redirect unfortunately does not work as it sends a get request to the backup methods and I'm not certain it keeps all required headers.
 
 
 if __name__ == '__main__':
