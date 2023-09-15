@@ -6,7 +6,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh "sudo cd /home/ec2-user/fcaflask/FCA-Flask"
                 sh "sudo docker build -t 172.31.33.78:8083/fcaflask:latest ."
                 sh "sudo docker images"
             }
