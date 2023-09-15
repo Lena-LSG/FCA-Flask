@@ -6,21 +6,20 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                bat "docker build -t 127.0.0.1:8083/fcaflask:latest ."
-                bat "docker images"
+                sh "docker build -t 172.31.33.78:8083/fcaflask:latest ."
+                sh "docker images"
             }
         }
         stage('push') {
             steps {
-                bat "docker login 127.0.0.1:8083 -u ${NEXUS_LOGIN_USR} -p ${NEXUS_LOGIN_PSW}"
-                bat "docker push 127.0.0.1:8083/fcaflask"
+                sh "docker login 172.31.33.78:8083 -u ${NEXUS_LOGIN_USR} -p ${NEXUS_LOGIN_PSW}"
+                sh "docker push 172.31.33.78:8083/fcaflask"
             }
         }
         stage('deploy') {
             steps{
-                bat "docker run -d -p 8085:5000 --name fcaflask 127.0.0.1:8083/fcaflask"
-                bat "docker network connect fcaflask fcaflask"
-                bat "echo Pipeline ran successfully! Enjoy your backups!"
+                sh "docker run -d -p 80:5000 --name fcaflask 172.31.33.78:8083/fcaflask"
+                sh "echo Pipeline ran successfully! Enjoy your backups!"
             }
         }
     }
