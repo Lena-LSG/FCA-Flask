@@ -12,8 +12,8 @@ pipeline {
         }
         stage('push') {
             steps {
-                sh "sudo docker login 172.31.33.78:8083 -u ${NEXUS_LOGIN_USR} -p ${NEXUS_LOGIN_PSW}"
-                sh "sudo docker push 172.31.33.78:8083/fcaflask"
+                sh "sudo docker login --tls-verify=false 172.31.33.78:8083 -u ${NEXUS_LOGIN_USR} -p ${NEXUS_LOGIN_PSW}"
+                sh "sudo docker push --tls-verify=false 172.31.33.78:8083/fcaflask"
             }
         }
         stage('deploy') {
