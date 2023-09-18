@@ -7,7 +7,7 @@ from dateutil import parser
 # Get the backup folder path from environment variable
 sql_host = os.environ.get('SQL_HOST')
 if sql_host is None or not sql_host:
-    sql_host = '172.31.33.78'
+    sql_host = 'fca.cy6y2isjw7ur.eu-west-2.rds.amazonaws.com'
 
 
 # Connect to the MySQL database
@@ -15,8 +15,8 @@ def dbconnect():
     return mysql.connector.connect(
         host=sql_host,
         port=3306,
-        user="root",
-        password="admin",
+        user="admin",
+        password="admining",
         database="fca")
 
 
